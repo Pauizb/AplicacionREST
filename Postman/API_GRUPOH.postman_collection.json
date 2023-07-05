@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "61a8afa3-3f43-4a2d-a5e1-a28daf1718f9",
+		"name": "API GRUPOH",
+		"description": "Grupo H  \n  \nIntegrantes:\n\n\\-Paula Ruiz\n\n\\-Nicolas Ruiz\n\n\\-Matias Zapata",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27660200"
+	},
+	"item": [
+		{
+			"name": "Autentificación de Google",
+			"item": [
+				{
+					"name": "Visualizar datos post -login",
+					"item": [
+						{
+							"name": "/grupoh/datosusuario",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseurl}}/datosusuario"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/grupoh/login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/login"
+					},
+					"response": []
+				},
+				{
+					"name": "/grupoh/logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseurl}}/logout"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Votar",
+			"item": [
+				{
+					"name": "/grupoh/api/votar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_usuario\": 1,\r\n  \"id_curso\": cursoejemplo,\r\n  \"fecha_votacion\": \"2023-07-04\",\r\n  \"eleccion\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseurl}}/api/votar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Crear Curso",
+			"item": [
+				{
+					"name": "/grupoh/api/cursos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codigo\": \"ICC\",\r\n  \"nombre\": \"Introducción Ciencia de la Computación\",\r\n  \"semestre\": \"2\",\r\n  \"anio\": 2023\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseurl}}/api/cursos"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Crear usuario - Eliminar usuario",
+			"item": [
+				{
+					"name": "Modificar",
+					"item": [
+						{
+							"name": "/grupoh/api/users/<id>",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"nuevo_username\",\r\n  \"email\": \"nuevo_email@ejemplo.com\",\r\n  \"password\": \"nueva_password123\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseurl}}/api/users/:id",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/grupoh/api/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Sebastian Salazar\",\r\n  \"email\": \"ssalazar@utem.cl\",\r\n  \"password\": \"password123\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseurl}}/api/users"
+					},
+					"response": []
+				},
+				{
+					"name": "/grupoh/api/users/<id>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/users/:id",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Visualizar",
+			"item": [
+				{
+					"name": "Curso calificación promedio",
+					"item": [
+						{
+							"name": "/grupoh/api/cursos/<curso_id>/promedio-votos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/cursos/:id/promedio-votos",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"cursos",
+										":id",
+										"promedio-votos"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Usuarios",
+					"item": [
+						{
+							"name": "/grupoh/api/users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseurl}}/api/users"
+							},
+							"response": []
+						},
+						{
+							"name": "/grupoh/api/users/<id>",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseurl}}/api/users/:id",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Votos",
+					"item": [
+						{
+							"name": "/grupoh/api/votos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseurl}}/api/votos"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/grupoh/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{baseurl}}"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "https://cpyd.sebastian.cl/grupoh/",
+			"type": "string"
+		}
+	]
+}
